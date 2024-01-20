@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1012551442555",
+    "project_id": "contacts-app-783a6",
+    "storage_bucket": "contacts-app-783a6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1012551442555:android:e66cd5ac9db979468b42de",
+        "android_client_info": {
+          "package_name": "com.example.teachers_contact_book_mbstu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLQ76nvhvuAgVBuqonec0_TkAo28pyjZg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
