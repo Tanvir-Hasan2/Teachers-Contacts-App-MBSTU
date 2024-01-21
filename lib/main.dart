@@ -2,11 +2,12 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:teachers_contact_book_mbstu/views/add_contact_page.dart';
-import 'package:teachers_contact_book_mbstu/views/home.dart';
-import 'package:teachers_contact_book_mbstu/views/login_page.dart';
-import 'package:teachers_contact_book_mbstu/views/sign_up_page.dart';
 
+import 'Screens/add_contact_page.dart';
+import 'Screens/home.dart';
+import 'Screens/login_page.dart';
+import 'Screens/sign_up_page.dart';
+import 'Screens/splash_screen.dart';
 import 'controllers/auth_services.dart';
 import 'firebase_options.dart';
 
@@ -33,7 +34,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       routes: {
-        "/": (context) => CheckUser(),
+        //"/": (context) => CheckUser(),
+        "/": (context) => SplashScreen(),
         "/home": (context) => Homepage(),
         "/signup": (context) => SignUpPage(),
         "/login": (context) => LoginPage(),
