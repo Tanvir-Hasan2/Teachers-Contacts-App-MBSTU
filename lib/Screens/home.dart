@@ -153,10 +153,17 @@ class _HomepageState extends State<Homepage> {
                                         name: data["name"],
                                         phone: data["phone"],
                                         email: data["email"],
-                                        docID: document.id))),
+                                        //department: data["department"],
+                                        docID: document.id, department: 'department',))),
                             leading: CircleAvatar(child: Text(data["name"][0])),
                             title: Text(data["name"]),
-                            subtitle: Text(data["phone"]),
+                            subtitle: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(data["phone"]),
+                                Text("Department: ${data["department"]}"),
+                              ],
+                            ),
                             trailing: IconButton(
                               icon: Icon(Icons.call),
                               onPressed: () {

@@ -5,8 +5,8 @@ class CRUDService {
   User? user = FirebaseAuth.instance.currentUser;
 
 // add new contacts to firestore
-  Future addNewContacts(String name, String phone, String email) async {
-    Map<String, dynamic> data = {"name": name, "email": email, "phone": phone};
+  Future addNewContacts(String name, String phone, String email, String department) async {
+    Map<String, dynamic> data = {"name": name, "email": email, "phone": phone,"department": department};
     try {
       await FirebaseFirestore.instance
           .collection("users")
@@ -40,8 +40,8 @@ class CRUDService {
 
   // update a contact
   Future updateContact(
-      String name, String phone, String email, String docID) async {
-    Map<String, dynamic> data = {"name": name, "email": email, "phone": phone};
+      String name, String phone, String email,String department, String docID) async {
+    Map<String, dynamic> data = {"name": name, "email": email, "phone": phone,"department": department};
     try {
       await FirebaseFirestore.instance
           .collection("users")
