@@ -13,6 +13,8 @@ class _AddContactState extends State<AddContact> {
   TextEditingController _nameController = TextEditingController();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _phoneController = TextEditingController();
+  TextEditingController _departmentController = TextEditingController();
+
   final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -58,6 +60,19 @@ class _AddContactState extends State<AddContact> {
                   height: 10,
                 ),
                 SizedBox(
+                  width: MediaQuery.of(context).size.width * .9,
+                  child: TextFormField(
+                    controller: _departmentController,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      label: Text("Department"),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                SizedBox(
                     width: MediaQuery.of(context).size.width * .9,
                     child: TextFormField(
                       controller: _emailController,
@@ -73,17 +88,22 @@ class _AddContactState extends State<AddContact> {
                     height: 65,
                     width: MediaQuery.of(context).size.width * .9,
                     child: ElevatedButton(
-                        onPressed: () {
-                          if (formKey.currentState!.validate()) {
-                            CRUDService().addNewContacts(_nameController.text,
-                                _phoneController.text, _emailController.text);
-                            Navigator.pop(context);
-                          }
-                        },
-                        child: Text(
-                          "Create",
-                          style: TextStyle(fontSize: 16),
-                        ))),
+                      onPressed: () {
+                        if (formKey.currentState!.validate()) {
+                          CRUDService().addNewContacts(
+                            _nameController.text,
+                            _phoneController.text,
+                            _emailController.text,
+                            _departmentController.text, // Added department
+                          );
+                          Navigator.pop(context);
+                        }
+                      },
+                      child: Text(
+                        "Create",
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ),),
               ],
             ),
           ),

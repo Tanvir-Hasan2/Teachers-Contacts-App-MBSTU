@@ -8,8 +8,9 @@ class UpdateContact extends StatefulWidget {
       required this.docID,
       required this.name,
       required this.phone,
-      required this.email});
-  final String docID, name, phone, email;
+      required this.email,
+      required this.department,});
+  final String docID, name, phone, email, department;
 
   @override
   State<UpdateContact> createState() => _UpdateContactState();
@@ -19,6 +20,7 @@ class _UpdateContactState extends State<UpdateContact> {
   TextEditingController _nameController = TextEditingController();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _phoneController = TextEditingController();
+  TextEditingController _departmentController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -26,6 +28,7 @@ class _UpdateContactState extends State<UpdateContact> {
     _emailController.text = widget.email;
     _phoneController.text = widget.phone;
     _nameController.text = widget.name;
+    _departmentController.text = widget.department;
 
     super.initState();
   }
@@ -86,6 +89,19 @@ class _UpdateContactState extends State<UpdateContact> {
                   height: 10,
                 ),
                 SizedBox(
+                  width: MediaQuery.of(context).size.width * .9,
+                  child: TextFormField(
+                    controller: _departmentController,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      label: Text("Department"),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                SizedBox(
                     height: 65,
                     width: MediaQuery.of(context).size.width * .9,
                     child: ElevatedButton(
@@ -95,6 +111,7 @@ class _UpdateContactState extends State<UpdateContact> {
                                 _nameController.text,
                                 _phoneController.text,
                                 _emailController.text,
+                                _departmentController.text,
                                 widget.docID);
                             Navigator.pop(context);
                           }

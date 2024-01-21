@@ -41,6 +41,8 @@ dependencies:
   firebase_auth:
   google_sign_in:
   url_launcher:
+  provider:
+  intl:
 
 dev_dependencies:
   flutter_test:
