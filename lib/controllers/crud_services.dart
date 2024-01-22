@@ -30,13 +30,11 @@ class CRUDService {
     // a filter to perfom search
     if (searchQuery != null && searchQuery.isNotEmpty) {
       String searchEnd = searchQuery + "\uf8ff";
-      String searchQueryLower = searchQuery.toLowerCase();
-      // Use where clause for case-insensitive substring search
       contactsQuery = contactsQuery.where("name",
-          isGreaterThanOrEqualTo: searchQueryLower, isLessThan: searchEnd.toLowerCase());
+          isGreaterThanOrEqualTo: searchQuery, isLessThan: searchEnd);
       // Also, filter by department
-      contactsQuery = contactsQuery.where("department",
-          isGreaterThanOrEqualTo: searchQueryLower, isLessThan: searchEnd.toLowerCase());
+      // contactsQuery = contactsQuery.where("department",
+      //     isGreaterThanOrEqualTo: searchQueryLower, isLessThan: searchEnd.toLowerCase());
 
     }
 
