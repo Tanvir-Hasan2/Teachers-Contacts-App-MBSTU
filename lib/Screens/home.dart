@@ -153,15 +153,17 @@ class _HomepageState extends State<Homepage> {
                                         name: data["name"],
                                         phone: data["phone"],
                                         email: data["email"],
-                                        //department: data["department"],
-                                        docID: document.id, department: 'department',))),
+                                        department: data["department"],
+                                        docID: document.id, ))),
                             leading: CircleAvatar(child: Text(data["name"][0])),
-                            title: Text(data["name"]),
+                            title: Text(data["name"],style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),),
                             subtitle: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(data["phone"]),
-                                Text("${data["department"]}"),
+                                Text(data["department"],style: TextStyle(color:Colors.blueAccent),),
+                                Text(data["phone"],style: TextStyle(color: Colors.deepPurple),),
+                                //Text(data["email"] ),
+
                               ],
                             ),
                             trailing: IconButton(
