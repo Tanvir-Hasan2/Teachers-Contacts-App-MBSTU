@@ -161,7 +161,7 @@ class _HomepageState extends State<Homepage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(data["phone"]),
-                                Text("Department: ${data["department"]}"),
+                                Text("${data["department"]}"),
                               ],
                             ),
                             trailing: IconButton(
