@@ -75,7 +75,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           if (value == "Account Created") {
                             ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(content: Text("Account Created")));
-                            Navigator.pushReplacementNamed(context, "/home");
+                            Navigator.pushReplacementNamed(context, "/caro");
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                               content: Text(
@@ -104,7 +104,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       if (value == "Google Login Successful") {
                         ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(content: Text("Google Login Successful")));
-                        Navigator.pushReplacementNamed(context, "/home");
+                        Navigator.pushReplacementNamed(context, "/caro");
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                           content: Text(

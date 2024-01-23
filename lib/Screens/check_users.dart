@@ -14,7 +14,7 @@ class _CheckUserState extends State<CheckUser> {
   void initState() {
     AuthService().isLoggedIn().then((value) {
       if (value) {
-        Navigator.pushReplacementNamed(context, "/home");
+        Navigator.pushReplacementNamed(context, "/caro");
       } else {
         Navigator.pushReplacementNamed(context, "/login");
       }
