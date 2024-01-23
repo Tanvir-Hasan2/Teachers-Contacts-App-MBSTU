@@ -75,7 +75,7 @@ class _LoginPageState extends State<LoginPage> {
                           if (value == "Login Successful") {
                             ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(content: Text("Login Successful")));
-                            Navigator.pushReplacementNamed(context, "/home");
+                            Navigator.pushReplacementNamed(context, "/caro");
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                               content: Text(
@@ -104,7 +104,7 @@ class _LoginPageState extends State<LoginPage> {
                       if (value == "Google Login Successful") {
                         ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(content: Text("Google Login Successful")));
-                        Navigator.pushReplacementNamed(context, "/home");
+                        Navigator.pushReplacementNamed(context, "/caro");
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                           content: Text(

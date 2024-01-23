@@ -43,6 +43,9 @@ dependencies:
   url_launcher:
   provider:
   intl:
+  carousel_slider:
+  smooth_page_indicator:
+  page_transition:
 
 dev_dependencies:
   flutter_test:
