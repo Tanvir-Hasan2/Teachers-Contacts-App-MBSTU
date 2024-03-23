@@ -38,7 +38,7 @@ class _UpdateContactState extends State<UpdateContact> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.green,
-        title: Text("Update Contact",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Colors.white),),
+        title: const Text("Update Contact",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Colors.white),),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -47,7 +47,7 @@ class _UpdateContactState extends State<UpdateContact> {
           child: Center(
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 SizedBox(
@@ -56,49 +56,49 @@ class _UpdateContactState extends State<UpdateContact> {
                       validator: (value) =>
                           value!.isEmpty ? "Enter any name" : null,
                       controller: _nameController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         label: Text("Name"),
                       ),
                     )),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 SizedBox(
                     width: MediaQuery.of(context).size.width * .9,
                     child: TextFormField(
                       controller: _phoneController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         label: Text("Phone"),
                       ),
                     )),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 SizedBox(
                     width: MediaQuery.of(context).size.width * .9,
                     child: TextFormField(
                       controller: _emailController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         label: Text("Email"),
                       ),
                     )),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width * .9,
                   child: TextFormField(
                     controller: _departmentController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       label: Text("Department"),
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 SizedBox(
@@ -116,11 +116,11 @@ class _UpdateContactState extends State<UpdateContact> {
                             Navigator.pop(context);
                           }
                         },
-                        child: Text(
+                        child: const Text(
                           "Update",
                           style: TextStyle(fontSize: 16),
                         ))),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 SizedBox(
@@ -131,7 +131,7 @@ class _UpdateContactState extends State<UpdateContact> {
                           CRUDService().deleteContact(widget.docID);
                           Navigator.pop(context);
                         },
-                        child: Text(
+                        child: const Text(
                           "Delete",
                           style: TextStyle(fontSize: 16),
                         ))),

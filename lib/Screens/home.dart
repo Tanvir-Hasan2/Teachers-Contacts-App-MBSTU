@@ -52,12 +52,13 @@ class _HomepageState extends State<Homepage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.greenAccent,
-        title: Text("Contacts Book",style: TextStyle(color: Colors.white,letterSpacing: 2,fontSize: 30,fontWeight: FontWeight.bold,),),
+        title: const Text("Contacts Book",style: TextStyle(color: Colors.white,letterSpacing: 2,fontSize: 30,fontWeight: FontWeight.bold,),),
         centerTitle: true,
         // search box
         bottom: PreferredSize(
+            preferredSize: Size(MediaQuery.of(context).size.width * 8, 80),
             child: Container(
-              padding: EdgeInsets.symmetric(vertical: 8),
+              padding: const EdgeInsets.symmetric(vertical: 8),
               child: SizedBox(
                   width: MediaQuery.of(context).size.width * .9,
                   child: TextFormField(
@@ -68,9 +69,9 @@ class _HomepageState extends State<Homepage> {
                     focusNode: _searchfocusNode,
                     controller: _searchController,
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        label: Text("Search"),
-                        prefixIcon: Icon(Icons.search),
+                        border: const OutlineInputBorder(),
+                        label: const Text("Search"),
+                        prefixIcon: const Icon(Icons.search),
                         suffixIcon: _searchController.text.isNotEmpty
                             ? IconButton(
                                 onPressed: () {
@@ -79,18 +80,17 @@ class _HomepageState extends State<Homepage> {
                                   _stream = CRUDService().getContacts();
                                   setState(() {});
                                 },
-                                icon: Icon(Icons.close),
+                                icon: const Icon(Icons.close),
                               )
                             : null),
                   )),
-            ),
-            preferredSize: Size(MediaQuery.of(context).size.width * 8, 80)),
+            )),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.pushNamed(context, "/add");
         },
-        child: Icon(Icons.person_add),
+        child: const Icon(Icons.person_add),
       ),
       drawer: Drawer(
           child: ListView(
@@ -106,7 +106,7 @@ class _HomepageState extends State<Homepage> {
                     .toString()[0]
                     .toUpperCase()),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Text(FirebaseAuth.instance.currentUser!.email.toString())
@@ -116,11 +116,11 @@ class _HomepageState extends State<Homepage> {
             onTap: () {
               AuthService().logout();
               ScaffoldMessenger.of(context)
-                  .showSnackBar(SnackBar(content: Text("Logged Out")));
+                  .showSnackBar(const SnackBar(content: Text("Logged Out")));
               Navigator.pushReplacementNamed(context, "/login");
             },
-            leading: Icon(Icons.logout_outlined),
-            title: Text("Logout"),
+            leading: const Icon(Icons.logout_outlined),
+            title: const Text("Logout"),
           )
         ],
       )),
@@ -129,15 +129,15 @@ class _HomepageState extends State<Homepage> {
           builder:
               (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
             if (snapshot.hasError) {
-              return Text("Something Went Wrong");
+              return const Text("Something Went Wrong");
             }
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(
-                child: Text("Loading"),
+              return const Center(
+                child: Text("Loading...."),
               );
             }
             return snapshot.data!.docs.length == 0
-                ? Center(
+                ? const Center(
                     child: Text("No Contacts Found ..."),
                   )
                 : ListView(
@@ -156,18 +156,18 @@ class _HomepageState extends State<Homepage> {
                                         department: data["department"],
                                         docID: document.id, ))),
                             leading: CircleAvatar(child: Text(data["name"][0])),
-                            title: Text(data["name"],style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),),
+                            title: Text(data["name"],style: const TextStyle(color: Colors.black,fontWeight: FontWeight.bold),),
                             subtitle: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(data["department"],style: TextStyle(color:Colors.blueAccent),),
-                                Text(data["phone"],style: TextStyle(color: Colors.deepPurple),),
+                                Text(data["department"],style: const TextStyle(color:Colors.blueAccent),),
+                                Text(data["phone"],style: const TextStyle(color: Colors.deepPurple),),
                                 //Text(data["email"] ),
 
                               ],
                             ),
                             trailing: IconButton(
-                              icon: Icon(Icons.call),
+                              icon: const Icon(Icons.call),
                               onPressed: () {
                                 callUser(data["phone"]);
                               },
