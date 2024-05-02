@@ -13,7 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(
-      Duration(seconds: 5),
+      const Duration(seconds: 5),
       () {
         Navigator.pushReplacementNamed(context, "/checkUser");
       },
@@ -34,33 +34,33 @@ class _SplashScreenState extends State<SplashScreen> {
                 height: 150,
                 width: 150,
               ),
-              SizedBox(height: 30),
-              Text(
-                "Teachers Contact Book",
+              const SizedBox(height: 30),
+              const Text(
+                "MBSTU Phone Book",
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold,color: Colors.deepPurple),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Text(
+              const Text(
                 "MBSTU",
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold,color: Colors.deepPurple),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 180,
               ),
 
-              Text(
+              const Text(
                 "Developed by Tarikul&Akash",
                 style: TextStyle(fontSize: 20, letterSpacing: 3,fontWeight: FontWeight.bold,color: Colors.blue),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
-              Text(
+              const Text(
                 "Dept. of ICT, MBSTU",
                 style: TextStyle(fontSize: 20, letterSpacing: 2,fontWeight: FontWeight.bold,color: Colors.deepPurple),
                 textAlign: TextAlign.center,

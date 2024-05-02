@@ -1,13 +1,13 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:teachers_contact_book_mbstu/Screens/caro_slider.dart';
-import 'Screens/add_contact_page.dart';
-import 'Screens/check_users.dart';
-import 'Screens/home.dart';
-import 'Screens/login_page.dart';
-import 'Screens/sign_up_page.dart';
-import 'Screens/splash_screen.dart';
+import 'controllers/add_contact_page.dart';
+import 'Views/caro_slider.dart';
+import 'controllers/check_users.dart';
+import 'Views/home.dart';
+import 'Views/login_page.dart';
+import 'Views/sign_up_page.dart';
+import 'Views/splash_screen.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -26,11 +26,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Contacts App',
+      title: 'MBSTU Phone Book',
       theme: ThemeData(
-        textTheme: GoogleFonts.soraTextTheme(),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange.shade800),
-        useMaterial3: true,
+        textTheme: GoogleFonts.exo2TextTheme(),
+       primarySwatch: Colors.blue,
       ),
       routes: {
         "/": (context) => SplashScreen(),

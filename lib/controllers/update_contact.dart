@@ -4,7 +4,8 @@ import 'package:teachers_contact_book_mbstu/controllers/crud_services.dart';
 
 class UpdateContact extends StatefulWidget {
   const UpdateContact(
-      {super.key,
+      {
+        super.key,
       required this.docID,
       required this.name,
       required this.phone,
@@ -29,7 +30,6 @@ class _UpdateContactState extends State<UpdateContact> {
     _phoneController.text = widget.phone;
     _nameController.text = widget.name;
     _departmentController.text = widget.department;
-
     super.initState();
   }
 
@@ -112,7 +112,8 @@ class _UpdateContactState extends State<UpdateContact> {
                                 _phoneController.text,
                                 _emailController.text,
                                 _departmentController.text,
-                                widget.docID);
+                                widget.docID
+                            );
                             Navigator.pop(context);
                           }
                         },

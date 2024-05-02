@@ -46,6 +46,18 @@ dependencies:
   carousel_slider:
   smooth_page_indicator:
   page_transition:
+  flutter_screenutil:
+  fluttertoast:
+  change_app_package_name:
+  flutter_launcher_icons: ^0.13.1
+
+
+flutter_launcher_icons:
+    android: "launcher_icon"
+    ios: true
+    image_path: "lib/images/logo.png"
+    min_sdk_android: 21 # android min sdk min:16, default 21
+
 
 dev_dependencies:
   flutter_test:

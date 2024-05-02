@@ -1,72 +1,51 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+
 
 class CRUDService {
-  User? user = FirebaseAuth.instance.currentUser;
-
-// add new contacts to firestore
-  Future addNewContacts(String name, String phone, String email, String department) async {
-    Map<String, dynamic> data = {"name": name, "email": email, "phone": phone,"department": department};
+  // add new contacts to firestore
+  Future addNewContacts(
+      String name, String phone, String email, String department) async {
+    Map<String, dynamic> data = {
+      "name": name,
+      "email": email,
+      "phone": phone,
+      "department": department
+    };
     try {
-      await FirebaseFirestore.instance
-          .collection("users")
-          .doc(user!.uid)
-          .collection("contacts")
-          .add(data);
-      print("Document Added");
+      await FirebaseFirestore.instance.collection("contacts").add(data);
+      Fluttertoast.showToast(msg: "Document Added");
     } catch (e) {
       print(e.toString());
     }
   }
 
-  // read documents inside firestore
-  Stream<QuerySnapshot> getContacts({String? searchQuery}) async* {
-    var contactsQuery = FirebaseFirestore.instance
-        .collection("users")
-        .doc(user!.uid)
-        .collection("contacts")
-        .orderBy("name");
-
-    // a filter to perfom search
-    if (searchQuery != null && searchQuery.isNotEmpty) {
-      String searchEnd = searchQuery + "\uf8ff";
-      contactsQuery = contactsQuery.where("name",
-          isGreaterThanOrEqualTo: searchQuery, isLessThan: searchEnd);
-      // Also, filter by department
-      // contactsQuery = contactsQuery.where("department",
-      //     isGreaterThanOrEqualTo: searchQueryLower, isLessThan: searchEnd.toLowerCase());
-
-    }
-
-    var contacts = contactsQuery.snapshots();
-    yield* contacts;
-  }
-
-  // update a contact
-  Future updateContact(
-      String name, String phone, String email,String department, String docID) async {
-    Map<String, dynamic> data = {"name": name, "email": email, "phone": phone,"department": department};
+  // Update a contact in firestore
+  Future updateContact(String contactId, String name, String phone,
+      String email, String department) async {
+    Map<String, dynamic> data = {
+      "name": name,
+      "email": email,
+      "phone": phone,
+      "department": department
+    };
     try {
       await FirebaseFirestore.instance
-          .collection("users")
-          .doc(user!.uid)
           .collection("contacts")
-          .doc(docID)
+          .doc(contactId)
           .update(data);
-      print("Document Upated");
+      print("Contact Updated");
     } catch (e) {
       print(e.toString());
     }
   }
 
-  // delete contact from firestore
-  Future deleteContact(String docID) async {
+// Delete a contact from firestore
+  Future deleteContact(String contactId) async {
     try {
       await FirebaseFirestore.instance
-          .collection("users")
-          .doc(user!.uid)
           .collection("contacts")
-          .doc(docID)
+          .doc(contactId)
           .delete();
       print("Contact Deleted");
     } catch (e) {

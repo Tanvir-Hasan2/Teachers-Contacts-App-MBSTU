@@ -1,4 +1,4 @@
-package com.example.teachers_contact_book_mbstu
+package com.app.MBSTU_Phone_Book
 
 import io.flutter.embedding.android.FlutterActivity
 
